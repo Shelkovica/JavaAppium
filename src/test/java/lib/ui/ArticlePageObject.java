@@ -48,10 +48,11 @@ abstract public class ArticlePageObject extends MainPageObject
         WebElement title_element = waitForTitleElement();
         if (Platform.getInstance().isAndroid()){
             return title_element.getAttribute("text");
-        } else {
+        } else if (Platform.getInstance().isIOS()){
             return title_element.getAttribute("name");
+        } else {
+            return title_element.getText();
         }
-
     }
 
 
@@ -72,8 +73,14 @@ abstract public class ArticlePageObject extends MainPageObject
                 FOOTER_ELEMENT,
                 "Cannot find the end of article",
                 40
-        );} else {
+        );} else if(Platform.getInstance().isIOS()) {
             this.swipeUpTitleElementAppear(FOOTER_ELEMENT, "Cannot find the end of article", 40);
+        } else {
+            this.scrollWebPageTitleElementNotVisible(
+                    FOOTER_ELEMENT,
+                    "Cannot find the end of article",
+                    40
+            );
         }
     }
 
