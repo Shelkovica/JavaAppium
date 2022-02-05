@@ -46,6 +46,10 @@ public class MainPageObject {
         return element;
     };
 
+    public boolean isElementPresent(String locator){
+        return getAmountOfElements(locator) >0;
+    }
+
     public WebElement waitForElementAndSendKeys(String locator, String value, String error_message, long timeoutInSeconds)
     {
         WebElement element =  waitForElementPresent(locator, error_message, 5);
@@ -272,6 +276,24 @@ public class MainPageObject {
         else {
             throw new IllegalArgumentException("Cannot get type of locator. Locator: "+ locator);
         }
+    }
 
+    public void tryClickElementWithFewAttempts(String locator, String error_message, int amount_of_attemps)
+    {
+        int current_attempts = 0;
+        boolean need_more_attempts = true;
+
+        while (need_more_attempts)
+        {
+            try {
+                this.waitForElementAndClick(locator, error_message, 1);
+                need_more_attempts = false;
+            } catch (Exception e) {
+                if (current_attempts > amount_of_attemps) {
+                    this.waitForElementAndClick(locator,error_message,1);
+                }
+            }
+            ++ current_attempts;
+        }
     }
 }

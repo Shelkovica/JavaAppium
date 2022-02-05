@@ -2,10 +2,7 @@ package Tests;
 
 import lib.CoreTestCase;
 import lib.Platform;
-import lib.ui.ArticlePageObject;
-import lib.ui.MyListsPageObjects;
-import lib.ui.NavigationUI;
-import lib.ui.SearchPageObject;
+import lib.ui.*;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListsPageObjectFactory;
 import lib.ui.factories.NavigationUIFactory;
@@ -15,13 +12,17 @@ import org.junit.Test;
 public class MyListsTests extends CoreTestCase
 {
     private static final String name_of_folder = "Learning programming";
+    private static final String
+        login = "Thenesq",
+        password = "Thenesq123";
+
     @Test
     public void testSaveFirstArticleToMyList()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.clickByArticleWithSubstring("Object-oriented programming language");
+        SearchPageObject.clickByArticleWithSubstring("bject-oriented programming language");
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.waitForTitleElement();
         String article_title = ArticlePageObject.getArticleTitle();
@@ -32,8 +33,22 @@ public class MyListsTests extends CoreTestCase
         else {
             ArticlePageObject.addArticlesToMySaved();
         }
+        if(Platform.getInstance().isMw()) {
+            AutorizationPageObject Auth = new AutorizationPageObject(driver);
+            Auth.clickAuthButton();
+            Auth.enterLoginData(login, password);
+            Auth.submitForm();
+
+            ArticlePageObject.waitForTitleElement();
+            assertEquals("we are not on the same page after login.",
+                    article_title,
+                    ArticlePageObject.getArticleTitle()
+            );
+            ArticlePageObject.addArticlesToMySaved();
+        }
         ArticlePageObject.closeArticle();
         NavigationUI NavigationUi = NavigationUIFactory.get(driver);
+        NavigationUi.openNavigation();
         NavigationUi.clickMyLists();
         MyListsPageObjects MyListsPageObjects = MyListsPageObjectFactory.get(driver);
 
@@ -52,21 +67,35 @@ public class MyListsTests extends CoreTestCase
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.clickByArticleWithSubstring("Object-oriented programming language");
+        SearchPageObject.clickByArticleWithSubstring("bject-oriented programming language");
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.waitForTitleElement();
         String article_title = ArticlePageObject.getArticleTitle();
+
         if(Platform.getInstance().isAndroid()){
             ArticlePageObject.addArticleToMyList(name_of_folder);
         }
         else {
             ArticlePageObject.addArticlesToMySaved();
         }
+        if(Platform.getInstance().isMw()) {
+            AutorizationPageObject Auth = new AutorizationPageObject(driver);
+            Auth.clickAuthButton();
+            Auth.enterLoginData(login, password);
+            Auth.submitForm();
+
+            ArticlePageObject.waitForTitleElement();
+            assertEquals("we are not on the same page after login.",
+                    article_title,
+                    ArticlePageObject.getArticleTitle()
+            );
+            ArticlePageObject.addArticlesToMySaved();
+        }
         ArticlePageObject.closeArticle();
 
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine("Java");
-        SearchPageObject.clickByArticleWithSubstring("language");
+        SearchPageObject.clickByArticleWithSubstring("anguage");
         ArticlePageObject.waitForTitleElement();
         if(Platform.getInstance().isAndroid()){
             ArticlePageObject.addArticleToMyList(name_of_folder);
@@ -76,8 +105,9 @@ public class MyListsTests extends CoreTestCase
         }
         ArticlePageObject.closeArticle();
         NavigationUI NavigationUi = NavigationUIFactory.get(driver);
+        NavigationUi.openNavigation();
         NavigationUi.clickMyLists();
-        MyListsPageObjects MyListsPageObjects = MyListsPageObjectFactory.get(driver);;
+        MyListsPageObjects MyListsPageObjects = MyListsPageObjectFactory.get(driver);
         if(Platform.getInstance().isAndroid()){
             MyListsPageObjects.openFolderByName(name_of_folder);
         }
