@@ -14,6 +14,7 @@ public class MWArticlePageObject extends ArticlePageObject {
         FOLDER_BY_NAME_TPL = "xpath://*[@text='{FOLDER_NAME}']";
         SECOND_ARTICLE_TITLE = "xpath://*[@title='JavaScript']//h3";
         SECOND_ARTICLE_ID = "id:JavaScript";
+        ARTICLE_NOTE = "xpath://div[@class='hatnote navigation-not-searchable plainlinks selfreference noprint']/a";
     };
 
     public MWArticlePageObject (RemoteWebDriver driver)

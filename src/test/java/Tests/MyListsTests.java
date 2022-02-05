@@ -127,7 +127,13 @@ public class MyListsTests extends CoreTestCase
                 title_article_in_list,
                 title_article_after_open
         );
-
+        if (Platform.getInstance().isMw()){
+            assertEquals(
+                    "Article not have note",
+                    ArticlePageObject.getArticleNote(),
+                    "Wikipedia:JavaScript"
+            );
+        }
 
     }
 }

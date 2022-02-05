@@ -21,6 +21,7 @@ abstract public class ArticlePageObject extends MainPageObject
         CLOSE_ARTICLE_BUTTON,
         FOLDER_BY_NAME_TPL,
         SECOND_ARTICLE_TITLE,
+        ARTICLE_NOTE,
         SECOND_ARTICLE_ID;
 
 
@@ -234,5 +235,11 @@ abstract public class ArticlePageObject extends MainPageObject
     {
         if (Platform.getInstance().isMw()){this.removeArticleFromSavedIfItAdded();}
         this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_BUTTON, "Cannot find option to add article to reading list", 5);
+    }
+
+    public String getArticleNote()
+    {
+        WebElement note = waitForElementPresent(ARTICLE_NOTE, "Cannot find note", 5);
+        return  note.getText();
     }
 }
