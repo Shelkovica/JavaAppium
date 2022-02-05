@@ -1,6 +1,7 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import io.qameta.allure.Step;
 import lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -13,16 +14,19 @@ abstract public class MyListsPageObjects extends MainPageObject
         INFO_WINDOW_CLOSE,
             REMOVE_FROM_SAVED_BUTTON;
 
+    @Step("get folder Xpath By Name '{name_of_folder}'")
     private static String getFolderXpathByName(String name_of_folder)
     {
         return  FOLDER_BY_NAME_TPL.replace("{FOLDER_NAME}", name_of_folder);
     }
 
+    @Step("get Saved Article Xpath By Title '{article_title}'")
     private static String getSavedArticleXpathByTitle(String article_title)
     {
         return  ARTICLE_BY_TITLE_TPL.replace("{TITLE}", article_title);
     }
 
+    @Step("get Remove Button By Title '{article_title}'")
     private static String getRemoveButtonByTitle(String article_title)
     {
         return  REMOVE_FROM_SAVED_BUTTON.replace("{TITLE}", article_title);
@@ -32,6 +36,7 @@ abstract public class MyListsPageObjects extends MainPageObject
         super(driver);
     }
 
+    @Step("open Folder By Name '{name_of_folder}'")
     public void openFolderByName(String name_of_folder)
     {
         String folder_name_xpath = getFolderXpathByName(name_of_folder);
@@ -42,7 +47,7 @@ abstract public class MyListsPageObjects extends MainPageObject
         );
     }
 
-
+    @Step("wait For Article To Appear By Title '{article_title}'")
     public void waitForArticleToAppearByTitle(String article_title)
     {
         String article_xpath = getSavedArticleXpathByTitle(article_title);
@@ -53,11 +58,13 @@ abstract public class MyListsPageObjects extends MainPageObject
         );
     }
 
+    @Step("close Info Window In My List")
     public  void closeInfoWindowInMyList()
     {
         this.waitForElementAndClick(INFO_WINDOW_CLOSE, "Cannot find info window", 15);
     }
 
+    @Step("wait For Article To Disappear By Title '{article_title}'")
     public void waitForArticleToDisappearByTitle(String article_title)
     {
         String article_xpath = getSavedArticleXpathByTitle(article_title);
@@ -68,6 +75,7 @@ abstract public class MyListsPageObjects extends MainPageObject
         );
     }
 
+    @Step("swipe By Article '{article_title}' to Delete ")
     public void swipeByArticleToDelete(String article_title)
     {
         this.waitForArticleToAppearByTitle(article_title);

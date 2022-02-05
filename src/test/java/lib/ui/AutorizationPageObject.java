@@ -1,5 +1,6 @@
 package lib.ui;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AutorizationPageObject extends MainPageObject
@@ -15,6 +16,7 @@ public class AutorizationPageObject extends MainPageObject
         super(driver);
     }
 
+    @Step("click Auth Button")
     public void clickAuthButton()
     {
         try {
@@ -26,12 +28,14 @@ public class AutorizationPageObject extends MainPageObject
         this.waitForElementAndClick(LOGIN_BUTTON, "Cannot find and click auth button", 5);
     }
 
+    @Step("enter Login Data login '{login}', password '{password}'")
     public void enterLoginData(String login, String password)
     {
         this.waitForElementAndSendKeys(LOGIN_INPUT, login, "Cannot find and put a login to the login input",5);
         this.waitForElementAndSendKeys(PASSWORD_INPUT, password, "Cannot find and put a password to the password input",5);
     }
 
+    @Step("submit Form")
     public void submitForm() {
         this.waitForElementAndClick(SUBMIT_BUTTON, "Cannot find and click submit auth button", 5);
     }

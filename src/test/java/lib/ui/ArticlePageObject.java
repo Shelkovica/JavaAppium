@@ -1,6 +1,7 @@
 package lib.ui;
 
 import io.appium.java_client.AppiumDriver;
+import io.qameta.allure.Step;
 import lib.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -35,19 +36,23 @@ abstract public class ArticlePageObject extends MainPageObject
         super(driver);
     }
 
+    @Step("Wait title for article")
     public WebElement waitForTitleElement()
     {
         return this.waitForElementPresent(TITLE, "Cannot find article title on page!", 15);
     }
 
+    @Step("Wait title for second article")
     public WebElement waitForTitleSecondElement()
     {
         return this.waitForElementPresent(TITLE_SECOND, "Cannot find article title on page!", 15);
     }
 
+    @Step("get Articles Title")
     public String getArticleTitle()
     {
         WebElement title_element = waitForTitleElement();
+        screenshot(this.takeScreenshot("Article Title"));
         if (Platform.getInstance().isAndroid()){
             return title_element.getAttribute("text");
         } else if (Platform.getInstance().isIOS()){
@@ -57,10 +62,11 @@ abstract public class ArticlePageObject extends MainPageObject
         }
     }
 
-
+    @Step("get second Articles Title")
     public String getArticleSecondTitle()
     {
         WebElement title_element = waitForTitleSecondElement();
+        screenshot(this.takeScreenshot("Article Title"));
         if (Platform.getInstance().isAndroid()){
             return title_element.getAttribute("text");
         } else if (Platform.getInstance().isIOS()) {
@@ -70,6 +76,8 @@ abstract public class ArticlePageObject extends MainPageObject
         }
 
     }
+
+    @Step("swipe To Footer")
     public void swipeToFooter()
     {
         if(Platform.getInstance().isAndroid()){
@@ -88,6 +96,7 @@ abstract public class ArticlePageObject extends MainPageObject
         }
     }
 
+    @Step("add Article To My List")
     public void addArticleToMyList(String name_of_folder)
     {
         this.waitForElementPresent(
@@ -134,8 +143,9 @@ abstract public class ArticlePageObject extends MainPageObject
                 5
         );
 
-    }
+    };
 
+    @Step("add Second Article To My List")
     public void addSecondArticleToMyList(String name_of_folder)
     {
         this.waitForElementAndClick(
@@ -157,6 +167,7 @@ abstract public class ArticlePageObject extends MainPageObject
         );
     }
 
+    @Step("close Article")
     public void closeArticle()
     {
        if(Platform.getInstance().isAndroid()||(Platform.getInstance().isIOS())){
@@ -188,6 +199,7 @@ abstract public class ArticlePageObject extends MainPageObject
       }
     };
 
+    @Step("open Article")
     public void openArticle()
     {if (Platform.getInstance().isAndroid() || Platform.getInstance().isMw()) {
         this.waitForElementAndClick(
@@ -199,6 +211,7 @@ abstract public class ArticlePageObject extends MainPageObject
     }
     }
 
+    @Step("open Article in my list")
     public void openArticleInList()
     {
 
@@ -209,6 +222,7 @@ abstract public class ArticlePageObject extends MainPageObject
         );
     }
 
+    @Step("assert Title Present")
     public void assertTitlePresent()
     {
         this.assertElementPresent(
@@ -217,6 +231,7 @@ abstract public class ArticlePageObject extends MainPageObject
         );
     }
 
+    @Step("remove Article from Saved If It Added")
     public void removeArticleFromSavedIfItAdded()
     {
         if(this.isElementPresent(OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)){
@@ -230,13 +245,14 @@ abstract public class ArticlePageObject extends MainPageObject
         }
     }
 
-
+    @Step("add Articles To My Saved")
     public void addArticlesToMySaved()
     {
         if (Platform.getInstance().isMw()){this.removeArticleFromSavedIfItAdded();}
         this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_BUTTON, "Cannot find option to add article to reading list", 5);
     }
 
+    @Step("get Article Note")
     public String getArticleNote()
     {
         WebElement note = waitForElementPresent(ARTICLE_NOTE, "Cannot find note", 5);

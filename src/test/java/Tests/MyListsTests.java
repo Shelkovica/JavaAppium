@@ -1,5 +1,7 @@
 package Tests;
 
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.*;
@@ -7,8 +9,10 @@ import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListsPageObjectFactory;
 import lib.ui.factories.NavigationUIFactory;
 import lib.ui.factories.SearchPageObjectFactory;
+import org.junit.Assert;
 import org.junit.Test;
 
+@Epic("Tests for articles")
 public class MyListsTests extends CoreTestCase
 {
     private static final String name_of_folder = "Learning programming";
@@ -17,6 +21,11 @@ public class MyListsTests extends CoreTestCase
         password = "Thenesq123";
 
     @Test
+    @Features(value = {@Feature(value = "Search"), @Feature(value = "Article"), @Feature(value = "My List")})
+    @DisplayName("Save first article to my list and delete it")
+    @Description("We open an article and add it to My list. After delete it from y list")
+    @Step("Starting test testSaveFirstArticleToMyList")
+    @Severity(value = SeverityLevel.CRITICAL)
     public void testSaveFirstArticleToMyList()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
@@ -40,7 +49,7 @@ public class MyListsTests extends CoreTestCase
             Auth.submitForm();
 
             ArticlePageObject.waitForTitleElement();
-            assertEquals("we are not on the same page after login.",
+            Assert.assertEquals("we are not on the same page after login.",
                     article_title,
                     ArticlePageObject.getArticleTitle()
             );
@@ -62,6 +71,11 @@ public class MyListsTests extends CoreTestCase
     };
 
     @Test
+    @Features(value = {@Feature(value = "Search"), @Feature(value = "Article"), @Feature(value = "My List")})
+    @DisplayName("Save two articles to my list and delete one from them ")
+    @Description("We add two articles to my list, delete one and check the second article")
+    @Step("Starting test testSaveTwoArticle")
+    @Severity(value = SeverityLevel.CRITICAL)
     public void testSaveTwoArticle()
     {
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
@@ -85,7 +99,7 @@ public class MyListsTests extends CoreTestCase
             Auth.submitForm();
 
             ArticlePageObject.waitForTitleElement();
-            assertEquals("we are not on the same page after login.",
+            Assert.assertEquals("we are not on the same page after login.",
                     article_title,
                     ArticlePageObject.getArticleTitle()
             );
@@ -122,13 +136,13 @@ public class MyListsTests extends CoreTestCase
         ArticlePageObject.openArticle();
 
         String title_article_after_open =  ArticlePageObject.getArticleSecondTitle();
-        assertEquals(
+        Assert.assertEquals(
                 "Article title have been change after open",
                 title_article_in_list,
                 title_article_after_open
         );
         if (Platform.getInstance().isMw()){
-            assertEquals(
+            Assert.assertEquals(
                     "Article not have note",
                     ArticlePageObject.getArticleNote(),
                     "Wikipedia:JavaScript"
