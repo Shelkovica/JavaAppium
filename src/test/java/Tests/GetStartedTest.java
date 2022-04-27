@@ -4,6 +4,7 @@ import io.qameta.allure.*;
 import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.Platform;
+import lib.ui.AutorizationPageObject;
 import lib.ui.WelcomePageObject;
 import org.junit.Test;
 
@@ -34,5 +35,13 @@ public class GetStartedTest extends CoreTestCase {
 
         WelcomePageObject.waitForLearnMoreAboutDataCollectedText();
         WelcomePageObject.clickGetStartedButton();
+    }
+
+    @Test
+    public void testLoginWithCode() throws InterruptedException {
+        if ((Platform.getInstance().isAndroid()) || (Platform.getInstance().isIOS())) {
+            return;
+        }
+
     }
 }

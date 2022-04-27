@@ -16,7 +16,7 @@ public class Platform {
     private static final String PLATFORM_IOS = "ios";
     private static final String PLATFORM_ANDROID = "android";
     private static final String PLATFORM_MOBILE_WEB = "mobile_web";
-    private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
+    private static final String APPIUM_URL = "http://127.0.0.1:4728/wd/hub";
 
     private static Platform instance;
 
@@ -66,9 +66,11 @@ public class Platform {
         capabilities.setCapability("deviceName","AndroidTestDevice");
         capabilities.setCapability("platformVersion","8.0");
         capabilities.setCapability("automationName","Appium");
-        capabilities.setCapability("appPackage","org.wikipedia");
-        capabilities.setCapability("appActivity",".main.MainActivity");
-        capabilities.setCapability("app","C:/vica/job/Новая папка/training_mobile_auto/apks/org.wikipedia.apk");
+        capabilities.setCapability("appPackage","com.edu.client");
+        //capabilities.setCapability("appActivity",".main.MainActivity");
+        capabilities.setCapability("appActivity",".com.isidroid.b21.clean.presentation.splash.SplashActivity");
+        capabilities.setCapability("app","D:/job/JavaAppiumTest/apk/com.edu.client.apk");
+
         return capabilities;
     }
 
@@ -86,8 +88,8 @@ public class Platform {
     private ChromeOptions getMwChromeOptions()
     {
         Map<String, Object> deviceMetrics = new HashMap<String, Object>();
-        deviceMetrics.put("width", 360);
-        deviceMetrics.put("height", 640);
+        deviceMetrics.put("width", 1280);
+        deviceMetrics.put("height", 1024);
         deviceMetrics.put("pixelRatio", 3.0);
 
         Map<String, Object> mobileEmulation  = new HashMap<String, Object>();
@@ -95,7 +97,7 @@ public class Platform {
         mobileEmulation.put("userAgent", "Mozilla/5.0 (Linux; Android 4.2.1; en-us; Nexus 5 Build/JOP40D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("window-size=340,640");
+        chromeOptions.addArguments("window-size=1280,1024");
 
         return chromeOptions;
     }

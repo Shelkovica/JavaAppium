@@ -45,7 +45,7 @@ public class MainPageObject {
     @Step("wait For Element Present ")
     public WebElement waitForElementPresent(String locator, String error_message)
     {
-        return waitForElementPresent(locator, error_message, 5);
+        return waitForElementPresent(locator, error_message, 10);
     }
 
     @Step("wait For Element And Click")

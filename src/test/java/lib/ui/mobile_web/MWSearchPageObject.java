@@ -22,6 +22,10 @@ public class MWSearchPageObject extends SearchPageObject {
         SEARCH_INPUT_TEXT = "Search…";
         SEARCH_RESULT_TITLE_ARTICLE = "id:org.wikipedia:id/page_list_item_title";
         SEARCH_EMPTY_ELEMENT = "id:org.wikipedia:id/search_empty_message";
+
+
+
+
     }
 
     public MWSearchPageObject(RemoteWebDriver driver)

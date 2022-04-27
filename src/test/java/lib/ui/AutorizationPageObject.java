@@ -9,7 +9,9 @@ public class AutorizationPageObject extends MainPageObject
         LOGIN_BUTTON = "xpath://div/a[text()='Log in']",
         LOGIN_INPUT = "css:input[name='wpName']",
         PASSWORD_INPUT = "css:input[name='wpPassword']",
-        SUBMIT_BUTTON = "css:button#wpLoginAttempt";
+        SUBMIT_BUTTON = "css:button#wpLoginAttempt",
+            NEXT_BUTTON ="css:button.skl-button",
+        LOGIN_INPUT_DATA = "css:input.auth__input";
 
     public AutorizationPageObject(RemoteWebDriver driver)
     {
@@ -39,4 +41,29 @@ public class AutorizationPageObject extends MainPageObject
     public void submitForm() {
         this.waitForElementAndClick(SUBMIT_BUTTON, "Cannot find and click submit auth button", 5);
     }
+
+    @Step("enter data to login form")
+    public void enterPhoneData(String login)
+    {
+        this.waitForElementAndSendKeys(LOGIN_INPUT_DATA, login, "Cannot find and put a phone to the login input",5);
+    }
+
+    @Step("next click")
+    public void nextClick() {
+        this.waitForElementAndClick(NEXT_BUTTON, "Cannot find and click submit auth button", 5);
+    }
+
+    public void loginWithCode() throws InterruptedException {
+
+        if (this.isElementPresent(LOGIN_INPUT_DATA)){
+        AutorizationPageObject AutorizationPageObject = new AutorizationPageObject(driver);
+        this.enterPhoneData("9000000000");
+        this.nextClick();
+        Thread.sleep(2000);
+        this.enterPhoneData("123456");
+        this.nextClick();
+        Thread.sleep(5000);}
+    }
+
+
 }

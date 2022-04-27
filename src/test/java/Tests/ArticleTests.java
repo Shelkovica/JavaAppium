@@ -13,7 +13,7 @@ import org.junit.Test;
 @Epic("Tests for articles")
 public class ArticleTests extends CoreTestCase
 {
-    @Test
+   /* @Test
     @Features(value = {@Feature(value = "Search"), @Feature(value = "Article")})
     @DisplayName("Compare article title with expected one")
     @Description("We open 'Java Object-oriented programming language' article and make sure the title is expected")
@@ -67,5 +67,5 @@ public class ArticleTests extends CoreTestCase
         SearchPageObject.clickByArticleWithSubstring("bject-oriented programming language");
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         ArticlePageObject.assertTitlePresent();
-    };
+    };*/
 }
