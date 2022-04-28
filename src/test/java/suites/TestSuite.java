@@ -13,7 +13,7 @@ import org.junit.runners.Suite;
       //  GetStartedTest.class,
       //  MyListsTests.class,
       //  SearchTests.class
-        RecommendedTests.class
+     //   RecommendedTests.class
 }
 )
 

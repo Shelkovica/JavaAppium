@@ -20,7 +20,8 @@ abstract public class LibraryPageObject extends MainPageObject {
             FILE_MENU_WINDOW,
             FILE_MENU_EDIT,
             FILE_MENU_APPOINTMENT,
-            FILE_MENU_REPORT;
+            FILE_MENU_REPORT,
+            FILE_MENU_PERMISSION;
 
     public LibraryPageObject (RemoteWebDriver driver)
     {
@@ -99,5 +100,11 @@ abstract public class LibraryPageObject extends MainPageObject {
     {
         this.waitForElementPresent(FILE_MENU_WINDOW, "Cannot view file menu", 5);
         this.waitForElementAndClick(FILE_MENU_REPORT, "Cannot click menu Report", 5);
+    }
+
+    public void selectMenuFilePermission()
+    {
+        this.waitForElementPresent(FILE_MENU_WINDOW, "Cannot view file menu", 5);
+        this.waitForElementAndClick(FILE_MENU_PERMISSION, "Cannot click menu Permission", 5);
     }
 }

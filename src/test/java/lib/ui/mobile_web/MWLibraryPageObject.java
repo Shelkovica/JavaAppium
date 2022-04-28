@@ -21,6 +21,7 @@ public class MWLibraryPageObject extends LibraryPageObject
         FILE_MENU_EDIT = "css:div.action.action_edit";
         FILE_MENU_APPOINTMENT = "css:div.action.action_appointment";
         FILE_MENU_REPORT = "css:div.action.action_report";
+        FILE_MENU_PERMISSION = "css:div.action.action_permissions";
     }
 
 

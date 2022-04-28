@@ -213,4 +213,204 @@ public class LibraryTests extends CoreTestCase {
         }
     }
 
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Теста Редактировать")
+    @Description("Открываем редактирование из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_3_1")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_3_1() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryTests();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileEdit();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Содержание", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Теста Назначить")
+    @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_3_2")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_3_2() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryTests();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileAppointment();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Назначения", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Теста Посмотреть отчет")
+    @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_3_3")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_3_3() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryTests();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileReport();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Отчет", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Опроса  Редактировать")
+    @Description("Открываем редактирование из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_4_1")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_4_1() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibrarySurveys();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileEdit();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Содержание", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Опроса Назначить")
+    @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_4_2")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_4_2() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibrarySurveys();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileAppointment();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Назначения", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Опроса Посмотреть отчет")
+    @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_4_3")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_4_3() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibrarySurveys();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileReport();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Отчет", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Аудита Редактировать")
+    @Description("Открываем редактирование из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_5_1")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_5_1() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryAudits();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileEdit();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Содержание", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Аудита Назначить")
+    @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_5_2")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_5_2() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryAudits();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileAppointment();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Назначения", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Аудита Посмотреть отчет")
+    @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_5_3")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_5_3() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryAudits();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFileReport();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Отчет", str);
+        }
+    }
+
+    @Test
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @DisplayName("Проверка пункта меню Аудита Предоставить доступ")
+    @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
+    @Step("Starting test testLib_2_5_4")
+    @Severity(value = SeverityLevel.MINOR)
+    public void testLib_2_5_4() {
+        if (Platform.getInstance().isMw()){
+            NavigationUI NavigationUI = NavigationUIFactory.get(driver);
+            NavigationUI.openLibrary();
+            LibraryPageObject LibraryPageObject = LibraryPageObjectFactory.get(driver);
+            LibraryPageObject.selectFilterLibraryAudits();
+            LibraryPageObject.openFileMenu();
+            LibraryPageObject.selectMenuFilePermission();
+            DocumentsPageObject DocumentsPageObject = DocumentsPageObjectFactory.get(driver);
+            String str = DocumentsPageObject.getActiveTabTitle();
+            Assert.assertEquals("Active tab is wrong", "Доступ", str);
+        }
+    }
+
 }
