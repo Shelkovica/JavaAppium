@@ -6,12 +6,14 @@ import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.AutorizationPageObject;
 import lib.ui.WelcomePageObject;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
 public class GetStartedTest extends CoreTestCase {
 
     @Test
+   @Ignore
     @Features(value = {@Feature(value = "Welcome Page")})
     @DisplayName("Skip welcome page for iOS app")
     @Description("We skip welcome page only for iOS app")
@@ -38,6 +40,7 @@ public class GetStartedTest extends CoreTestCase {
     }
 
     @Test
+    @Ignore
     public void testLoginWithCode() throws InterruptedException {
         if ((Platform.getInstance().isAndroid()) || (Platform.getInstance().isIOS())) {
             return;

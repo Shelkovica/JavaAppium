@@ -17,6 +17,12 @@ public class Platform {
     private static final String PLATFORM_ANDROID = "android";
     private static final String PLATFORM_MOBILE_WEB = "mobile_web";
     private static final String APPIUM_URL = "http://127.0.0.1:4728/wd/hub";
+    private static final String URL_DEV = "https://test30.dev.7skills.com/";
+    private static final String URL_STAGE = "https://test3.stage.7skills.com/";
+    private static final String URL_PROD = "http://127.0.0.1:4728/wd/hub";
+    private static final String SERVER_DEV = "dev";
+    private static final String SERVER_STAGE = "stage";
+    private static final String SERVER_PROD = "prod";
 
     private static Platform instance;
 
@@ -44,6 +50,8 @@ public class Platform {
     }
     }
 
+
+
     public boolean isAndroid()
     {
         return isPlatform(PLATFORM_ANDROID);
@@ -58,6 +66,23 @@ public class Platform {
     {
         return isPlatform(PLATFORM_MOBILE_WEB);
     }
+
+
+    public boolean isDev()
+    {
+        return isServer(SERVER_DEV);
+    }
+
+    public boolean isStage()
+    {
+        return isServer(SERVER_STAGE);
+    }
+
+    public boolean isProd()
+    {
+        return isServer(SERVER_PROD);
+    }
+
 
     private DesiredCapabilities getAndriodDesiredCapabilities()
     {
@@ -111,5 +136,16 @@ public class Platform {
     public String getPlatformVar()
     {
         return System.getenv("PLATFORM");
+    }
+
+    public String getServerVar()
+    {
+        return System.getenv("SERVER");
+    }
+
+    private boolean isServer(String my_server)
+    {
+        String server = this.getServerVar();
+        return my_server.equals(server);
     }
 }

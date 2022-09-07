@@ -5,7 +5,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class MWRecommendedPageObject extends RecommendedPageObject {
     static {
-        RECOMMENDED_TITLE = "css:h2.appointment__title";
+        RECOMMENDED_TITLE = "css:h2.appointments__title";
         COMPLETED_ELEMENT = "xpath://a[@href='/completed']";
         RECOMMENDED_ELEMENT = "xpath://a[@href='/recommended']";
     }

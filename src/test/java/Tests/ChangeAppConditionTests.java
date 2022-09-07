@@ -9,6 +9,7 @@ import lib.ui.SearchPageObject;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @Epic("Tests for app conditions")
@@ -16,6 +17,7 @@ public class ChangeAppConditionTests extends CoreTestCase
 {
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search"), @Feature(value = "App conditions"), @Feature(value = "Article")})
     @DisplayName("Change Screen Orientation on page Search Result")
     @Description("We change the screen orientation twice and check the title of the article")
@@ -47,6 +49,7 @@ public class ChangeAppConditionTests extends CoreTestCase
     };
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search"), @Feature(value = "App conditions"), @Feature(value = "Article")})
     @DisplayName("Check Search Article In Background")
     @Description("We open search result and assert title after Background app")

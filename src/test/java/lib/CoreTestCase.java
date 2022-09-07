@@ -78,11 +78,14 @@ public class CoreTestCase  {
 
     }
 
-    @Step("Open Wikipedia for Mobile Web (this method does nothing for Android and iOS)")
+    @Step("Open home page Mobile Web (this method does nothing for Android and iOS)")
     protected  static void openHomeWebPageForWeb()
     {
         if(Platform.getInstance().isMw()){
-            driver.get("https://test30.dev.7skills.com");
+            if(Platform.getInstance().isDev()){
+            driver.get("https://test30.dev.7skills.com/login?sms=true");}
+            else if (Platform.getInstance().isStage()){ driver.get("https://test5.stage.7skills.com/login?sms=true"); }
+            else if (Platform.getInstance().isProd()){ driver.get("https://test4.7skills.com/login?sms=true"); }
         } else {
             System.out.println("Method openWikiWebPageForMobileWeb() does nothing for platform "+ Platform.getInstance().getPlatformVar());
         }
@@ -105,6 +108,7 @@ public class CoreTestCase  {
             Properties props = new Properties();
             FileOutputStream fos = new FileOutputStream(path +"/environment.properties");
             props.setProperty("Environment", Platform.getInstance().getPlatformVar());
+            props.setProperty("Environment server", Platform.getInstance().getServerVar());
             props.store(fos,"See https://docs.qameta.io/allure/#_environment");
             fos.close();
         } catch(Exception e)

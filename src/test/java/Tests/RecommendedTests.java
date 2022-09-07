@@ -33,7 +33,7 @@ public class RecommendedTests extends CoreTestCase {
 
     @Test
     @Features(value = {@Feature(value = "Education"), @Feature(value = "Recommended")})
-    @DisplayName("Проверка заголовка Завершеннрых")
+    @DisplayName("Проверка заголовка Завершенных")
     @Description("Проверяем заголовок страницы Завершенных")
     @Step("Starting test testEduc_1_2")
     @Severity(value = SeverityLevel.MINOR)

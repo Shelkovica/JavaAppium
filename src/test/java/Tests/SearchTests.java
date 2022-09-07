@@ -6,6 +6,7 @@ import lib.CoreTestCase;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
@@ -16,6 +17,7 @@ public class SearchTests extends CoreTestCase
 {
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search")})
     @DisplayName("Test cancel search")
     @Description("We open search and then close it")
@@ -23,7 +25,6 @@ public class SearchTests extends CoreTestCase
     @Severity(value = SeverityLevel.MINOR)
     public void testCancelSearch()
     {
-
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.waitForCancelButtonToAppear();
@@ -32,6 +33,7 @@ public class SearchTests extends CoreTestCase
     };
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search")})
     @DisplayName("Test text in search input")
     @Description("We open search and assert placeholder")
@@ -47,6 +49,7 @@ public class SearchTests extends CoreTestCase
     }
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search")})
     @DisplayName("Test search result after search cancel")
     @Description("We search article, cancel the search and check empty page")
@@ -64,6 +67,7 @@ public class SearchTests extends CoreTestCase
     };
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search")})
     @DisplayName("Test search result contains search text")
     @Description("We search article, assert 3 first results contains search text")
@@ -86,6 +90,7 @@ public class SearchTests extends CoreTestCase
     }
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search")})
     @DisplayName("Test search result contains some article")
     @Description("We search article, assert search results contains above 1 article")
@@ -105,6 +110,7 @@ public class SearchTests extends CoreTestCase
     };
 
     @Test
+    @Ignore
     @Features(value = {@Feature(value = "Search")})
     @DisplayName("Test empty search result ")
     @Description("We search incorrect text, assert empty page")

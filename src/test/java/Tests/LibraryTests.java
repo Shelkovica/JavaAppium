@@ -93,7 +93,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Course")})
     @DisplayName("Проверка пункта меню курса Редактировать")
     @Description("Открываем редактирование из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_1_1")
@@ -113,7 +113,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Course")})
     @DisplayName("Проверка пункта меню курса Назначить")
     @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_1_2")
@@ -133,7 +133,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Course")})
     @DisplayName("Проверка пункта меню курса Посмотреть отчет")
     @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_1_3")
@@ -154,7 +154,7 @@ public class LibraryTests extends CoreTestCase {
 
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Exam")})
     @DisplayName("Проверка пункта меню Экзамена Редактировать")
     @Description("Открываем редактирование из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_2_1")
@@ -174,7 +174,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Exam")})
     @DisplayName("Проверка пункта меню Экзамена Назначить")
     @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_2_2")
@@ -194,7 +194,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Exam")})
     @DisplayName("Проверка пункта меню Экзамена Посмотреть отчет")
     @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_2_3")
@@ -214,7 +214,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Test")})
     @DisplayName("Проверка пункта меню Теста Редактировать")
     @Description("Открываем редактирование из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_3_1")
@@ -234,7 +234,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Test")})
     @DisplayName("Проверка пункта меню Теста Назначить")
     @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_3_2")
@@ -254,7 +254,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Test")})
     @DisplayName("Проверка пункта меню Теста Посмотреть отчет")
     @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_3_3")
@@ -274,7 +274,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Survey")})
     @DisplayName("Проверка пункта меню Опроса  Редактировать")
     @Description("Открываем редактирование из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_4_1")
@@ -294,7 +294,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Survey")})
     @DisplayName("Проверка пункта меню Опроса Назначить")
     @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_4_2")
@@ -314,7 +314,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Survey")})
     @DisplayName("Проверка пункта меню Опроса Посмотреть отчет")
     @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_4_3")
@@ -334,7 +334,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Audit")})
     @DisplayName("Проверка пункта меню Аудита Редактировать")
     @Description("Открываем редактирование из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_5_1")
@@ -354,7 +354,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Audit")})
     @DisplayName("Проверка пункта меню Аудита Назначить")
     @Description("Открываем Назначить  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_5_2")
@@ -374,7 +374,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Audit")})
     @DisplayName("Проверка пункта меню Аудита Посмотреть отчет")
     @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_5_3")
@@ -394,7 +394,7 @@ public class LibraryTests extends CoreTestCase {
     }
 
     @Test
-    @Features(value = {@Feature(value = "Library"), @Feature(value = "course")})
+    @Features(value = {@Feature(value = "Library"), @Feature(value = "Audit")})
     @DisplayName("Проверка пункта меню Аудита Предоставить доступ")
     @Description("Открываем Посмотреть отчет  из меню документа и проверяем открытый таб")
     @Step("Starting test testLib_2_5_4")
